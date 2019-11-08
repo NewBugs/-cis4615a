@@ -1,10 +1,25 @@
 // EXP00-J. Do not ignore values returned by methods
-// Noncompliant Code
+// Compliant Code
 
-public void deleteFile(){
+import java.util.*;
+import java.io.*;
 
-  File someFile = new File("someFileName.txt");
-  // Do something with someFile
-  someFile.delete();
 
+public class R02_EXP00_J {
+
+  public static void main(String[] args) {
+
+    deleteFile();
+  }
+
+  public static void deleteFile(){
+
+    // Create a file
+    File someFile = new File("someFileName.txt");
+
+    if (!someFile.delete()) {
+      System.out.println("Failed to delete file.");
+    }
+
+  }
 }
