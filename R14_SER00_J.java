@@ -3,10 +3,15 @@
 import java.util.*;
 import java.io.*;
 
+// Compile with "javac R14_SER00_J.java"
+// Run with "java R14_SER00_J"
+
 public class R14_SER00_J implements Serializable {
 
-int numOfWeapons = 10;
+  // Assign a number unique to this version of the class.
+  private static final long serialVersionUID = 24L;
 
+  int numOfWeapons = 10;
 
   public static void main(String[] args) {
     R14_SER00_J obj = new R14_SER00_J();
