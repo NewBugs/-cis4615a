@@ -1,10 +1,14 @@
 // Rule 08. Ensure atomicity when reading and writing 64-bit values
-// Uncompliant version
+// Compliant version
+
+// Compile with "javac R08_VNA05_J.java"
+// Run with "java R08_VNA05_J"
+
 import java.util.*;
 
 public class R08_VNA05_J{
 
-  private long i = 0;
+  private static volatile long i = 0;
 
   public static void main(String[] args) {
     long j = 123;
@@ -12,11 +16,11 @@ public class R08_VNA05_J{
     printLong();
   }
 
-  void static assignValue(long j) {
+  static void assignValue(long j) {
     i = j;
   }
 
-  void static printLong() {
+  static void printLong() {
     System.out.println("i = " + i);
   }
 
